@@ -1,0 +1,4 @@
+<map id="MX4_C301Class" name="MX4_C301Class">
+<area shape="rect" id="node1" title="7 segments 4 digits common cathodes LED display manager" alt="" coords="5,5,123,32"/>
+<area shape="rect" id="node2" href="$class_nano_timer_class.html" title="NanoTimer manager." alt="" coords="5,80,123,107"/>
+</map>

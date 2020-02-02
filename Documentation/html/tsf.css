@@ -1,0 +1,116 @@
+/* The Strawberry Field website stylesheet */
+/* copyright (c) 2007-2015 Roberto Ceccarelli - The Strawberry Field */
+/* http://strawberryfield.altervista.org */
+/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/3.0/  */
+
+/* bottom of page specific issues */
+#copyblock {
+  margin-top: 6px;
+  margin-bottom: 1ex;
+  text-align: right;
+  margin-right: 4%;
+  background: rgb(240,240,240);
+  font-size: 7.5pt;
+  padding: 2px;
+  margin-left: 4%;
+}
+
+@media (max-width: 639px) {
+	#validateblock {
+		display: none;
+	}
+}
+#validateblock {
+  float: left;
+  border: none;
+  font-size: 12px;
+ }
+
+#licenseblock {
+  float: right;
+  margin-right: 0;
+  border: none;
+  text-align: right;
+  font-size: 7.5pt;
+  line-height: 1;
+}
+
+.licensespan {
+  max-width: 400px;
+}
+#logosblock {
+  margin-left: 4%;
+  margin-right: 4%;
+  border: none;
+}
+
+#logosblock img {
+  border: none;
+}
+
+hr {
+  width: 80%;
+  height: 2px;
+  margin-top: 2px;
+  margin-bottom: 3px;
+  border: none;
+  border-top: 1px solid rgb(70,130,180);
+  border-bottom: 1px solid rgb(245,245,245);
+  padding: 0;
+}
+
+hr.edgesplit {
+  width: 92%;
+  clear: both;
+  margin-top: 0;
+  margin-bottom: 2px;
+  padding: 0 0 0 0;
+  height: 2px;
+}
+
+#header {
+  padding: 2px;
+  padding-top: 5px;
+  padding-left: 5%;
+}
+
+#logo {
+  float: left;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 560px) {
+	#logo {
+		width: 100%
+	}
+	
+	#header {
+		padding-top: 2px;
+		padding-left: 2px;
+	}
+}
+
+#tutorialtitle {
+  margin-bottom: 1ex;
+  text-align: right;
+  font-size: 11pt;
+  font-weight: bold;
+  font-style: italic;
+  padding: 4px;
+  margin-right: 4%;
+  margin-top: 28px; 
+}
+
+p.license {
+  padding-bottom: 25px;
+  margin-left: 70px;
+  padding-top: 10px;
+  text-indent: 0;
+  width: 420px;
+}
+
+img.license {
+  float: left;
+}  
