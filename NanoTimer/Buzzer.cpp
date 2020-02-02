@@ -50,7 +50,7 @@ void BuzzerClass::stopPlay() {
     status = playStates::stop;
 }
 
-void BuzzerClass::buzzerLoop() {
+void BuzzerClass::loop() {
     switch (status)
     {
     case playStates::stop :

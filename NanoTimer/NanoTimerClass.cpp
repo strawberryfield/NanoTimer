@@ -32,6 +32,7 @@ void NanoTimerClass::init() {
     counter = 0;
     prescaler = 0;
     currentStatus = states::stopped;
+    old_millis = millis();
 }
 
 void NanoTimerClass::counterTick() {
@@ -109,7 +110,7 @@ void NanoTimerClass::stoppedHandler(char inkey) {
         break;  
     case 'C':
         clear();
-        Keyboard16keys.init();  
+        Keyboard16keys.numericInputInit(display, DISPLAY_SIZE);  
     default:
         break;
     }
@@ -132,7 +133,27 @@ void NanoTimerClass::alarmHandler(char inkey) {
         Buzzer.stopPlay();
         clear();
         Keyboard16keys.numericInputInit(display, DISPLAY_SIZE);
+        currentStatus = states::stopped;
     }
+}
+
+void NanoTimerClass::loop() {
+	if (millis() - old_millis >= 100) {
+		old_millis = millis();
+		switch (currentStatus)
+		{
+		case states::stopped:
+			stoppedHandler(Keyboard16keys.numericInput());
+			break;
+		case states::alarm:
+			alarmHandler(Keyboard16keys.currentKey());
+			break;
+		case states::count_down:
+		case states::count_up:
+			counterHandler(Keyboard16keys.currentKey());
+			break;
+		}
+	}
 }
 
 NanoTimerClass NanoTimer;

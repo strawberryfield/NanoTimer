@@ -39,28 +39,32 @@
 class BuzzerClass
 {
  protected:
-    uint8_t outPin;
+    uint8_t outPin;				//!< Pin for Tone output
 	uint16_t beepFrequency;
 	uint16_t beepDuration; 
 	uint16_t beepPause;
-	uint32_t oldMillis;
+	uint32_t oldMillis;			//!< Previous time storage
 
+	///@brief
+	/// Device status
 	enum playStates {stop, note, pause};
 	playStates status;
 
+	///@brief
+	/// Operating modes
 	enum playModes {single, repeat};
 	playModes mode;
 
  public:
 	void init(uint8_t pin);				//!< Inits buzzer on specified pin
-	void play(uint16_t frequency);
-	void play(uint16_t frequency, uint16_t duration);
-	void stopPlay();
-	void buzzerLoop();
+	void play(uint16_t frequency);		//!< Replacement of Tone function
+	void play(uint16_t frequency, uint16_t duration);		//!< Plays note for specified duration
+	void stopPlay();					//!< Replacement of NoTone function
+	void loop();						//!< Function for main .ino loop
 
-	void beepInit(uint16_t frequency, uint16_t duration, uint16_t pause);
-	void beep(uint16_t frequency, uint16_t duration, uint16_t pause);
-	void beep();
+	void beepInit(uint16_t frequency, uint16_t duration, uint16_t pause);	//!< beeper parameters setting
+	void beep(uint16_t frequency, uint16_t duration, uint16_t pause);		//!< starts beeper with parameters
+	void beep();															//!< starts beeper with already set parameters 
 };
 
 extern BuzzerClass Buzzer;

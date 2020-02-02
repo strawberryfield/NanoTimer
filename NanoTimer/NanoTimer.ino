@@ -42,15 +42,12 @@ uint8_t cathodes[] = {
 	12, A1, A2, A3, 11
 };
 
-uint32_t old_millis;	 //!< millis reference 
-
 /** the setup function runs once when you press reset or power the board */
 void setup() {
 	NanoTimer.init();
 	Multiplexer.init(cathodes, DISPLAY_SIZE + 1);
 	Keyboard16keys.init();
 	Timer.init(250);	    //Base interrupt frequency 250Hz
-	old_millis = millis();
 	Keyboard16keys.numericInputInit(NanoTimer.display, DISPLAY_SIZE);
 	Buzzer.init(7);
 	Buzzer.beepInit(NOTE_D4, 300, 150);
@@ -58,23 +55,8 @@ void setup() {
 
 /** the loop function runs over and over again until power down or reset */
 void loop() {
-	if (millis() - old_millis >= 100) {
-		old_millis = millis();
-		switch (NanoTimer.currentStatus)
-		{
-		case states::stopped:
-			NanoTimer.stoppedHandler(Keyboard16keys.numericInput());
-			break;
-		case states::alarm:
-			NanoTimer.alarmHandler(Keyboard16keys.currentKey());
-			break;
-		case states::count_down:
-		case states::count_up:
-			NanoTimer.counterHandler(Keyboard16keys.currentKey());
-			break;
-		}
-	}
-	Buzzer.buzzerLoop();
+	NanoTimer.loop();
+	Buzzer.loop();
 }
 
 /// timer compare interrupt service routine

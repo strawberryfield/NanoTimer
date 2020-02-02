@@ -34,10 +34,6 @@
 
 #include "MX4_C301.h"
 
-///@brief
-/// States list
-enum states {stopped, alarm, count_up, count_down };
-
 ///@brief 
 /// NanoTimer manager
 class NanoTimerClass : public MX4_C301Class
@@ -49,15 +45,22 @@ protected:
     void buffer2counter();              //!< reads counter value from display
     void counter2buffer();              //!< writes counter value to display
 
+    uint32_t old_millis;	 //!< millis reference 
+
 public:
-    uint16_t counter;                   
-    states currentStatus;
+    uint16_t counter;                   //!< chronometer / countdown counter in 1/10 sec
+
+    ///@brief
+    /// States list
+    enum states {stopped, alarm, count_up, count_down };
+    states currentStatus;               
 
     void init();
     void counterTick();
     void stoppedHandler(char inkey);
     void counterHandler(char inkey);
     void alarmHandler(char inkey);
+    void loop();
 };
 
 extern NanoTimerClass NanoTimer;
