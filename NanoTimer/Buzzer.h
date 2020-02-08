@@ -33,6 +33,7 @@
 #endif
 
 #include "pitches.h"
+#include "Note.h"
 
 ///@brief
 /// Buzzer manager
@@ -59,12 +60,16 @@ class BuzzerClass
 	void init(uint8_t pin);				//!< Inits buzzer on specified pin
 	void play(uint16_t frequency);		//!< Replacement of Tone function
 	void play(uint16_t frequency, uint16_t duration);		//!< Plays note for specified duration
+	void play(NoteClass note);
 	void stopPlay();					//!< Replacement of NoTone function
 	void loop();						//!< Function for main .ino loop
 
 	void beepInit(uint16_t frequency, uint16_t duration, uint16_t pause);	//!< beeper parameters setting
 	void beep(uint16_t frequency, uint16_t duration, uint16_t pause);		//!< starts beeper with parameters
 	void beep();															//!< starts beeper with already set parameters 
+
+	void song(char rtttl[]);
+	void song(char rtttl[], bool repeat);
 };
 
 extern BuzzerClass Buzzer;

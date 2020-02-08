@@ -45,6 +45,10 @@ void BuzzerClass::play(uint16_t frequency, uint16_t duration) {
     play(frequency);
 }
 
+void BuzzerClass::play(NoteClass note) {
+    play(note.frequency, note.duration);
+}
+
 void BuzzerClass::stopPlay() {
     noTone(outPin);
     status = playStates::stop;
@@ -92,6 +96,14 @@ void BuzzerClass::beep() {
     mode = playModes::repeat;
     status = playStates::note;
     play(beepFrequency);
+}
+
+void BuzzerClass::song(char rtttl[]) {
+    song(rtttl, false);
+}
+
+void BuzzerClass::song(char rtttl[], bool repeat) {
+
 }
 
 BuzzerClass Buzzer;
