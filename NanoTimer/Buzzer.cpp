@@ -87,9 +87,17 @@ void BuzzerClass::beepInit(uint16_t frequency, uint16_t duration, uint16_t pause
     beepPause = pause;
 }
 
+void BuzzerClass::beepInit(NoteClass note, uint16_t pause) {
+    beepInit(note.frequency, note.duration, pause);
+}
+
 void BuzzerClass::beep(uint16_t frequency, uint16_t duration, uint16_t pause) {
     beepInit(frequency, duration, pause);
     beep();
+}
+
+void BuzzerClass::beep(NoteClass note, uint16_t pause) {
+    beep(note.frequency, note.duration, pause);
 }
 
 void BuzzerClass::beep() {

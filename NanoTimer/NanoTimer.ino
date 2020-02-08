@@ -50,7 +50,7 @@ void setup() {
 	Timer.init(250);	    //Base interrupt frequency 250Hz
 	Keyboard16keys.numericInputInit(NanoTimer.display, DISPLAY_SIZE);
 	Buzzer.init(7);
-	Buzzer.beepInit(NOTE_D4, 300, 150);
+	Buzzer.beepInit(NoteClass('A', ' ', 4, 300), 150);   // Diapason standard frequency A4 = 440Hz
 }
 
 /** the loop function runs over and over again until power down or reset */

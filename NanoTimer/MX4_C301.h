@@ -2,7 +2,7 @@
 /// Display manager class definition.
 ///
 /// @author
-/// copyright (c) 2019 Roberto Ceccarelli - Casasoft  
+/// copyright (c) 2019-2020 Roberto Ceccarelli - Casasoft  
 /// http://strawberryfield.altervista.org 
 /// 
 /// @copyright
@@ -44,37 +44,38 @@
 /// Pin  9: Segment B
 ///
 
-#define DISPLAY_SIZE 4
-#define DMASK B01111100
-#define BMASK B00000011
+static const uint8_t DISPLAY_SIZE = 4;
 
-#define SEGMENT_A	B00000001
-#define SEGMENT_B	B00000010
-#define SEGMENT_C	B00000100
-#define SEGMENT_D	B00001000
-#define SEGMENT_E	B00010000
-#define SEGMENT_F	B00100000
-#define SEGMENT_G	B01000000
+static const uint8_t DMASK = B01111100;
+static const uint8_t BMASK = B00000011;
 
-#define LED_1	B00000001
-#define LED_2	B00000010
-#define LED_3	B00000100
-#define LED_67	B00001000
-#define LED_8	B00010000
-#define LED_9	B00100000
-#define LED_11	B01000000
+static const uint8_t SEGMENT_A = B00000001;
+static const uint8_t SEGMENT_B = B00000010;
+static const uint8_t SEGMENT_C = B00000100;
+static const uint8_t SEGMENT_D = B00001000;
+static const uint8_t SEGMENT_E = B00010000;
+static const uint8_t SEGMENT_F = B00100000;
+static const uint8_t SEGMENT_G = B01000000;
 
-#define BLANK	B10000000
-#define MINUS	B11000000
-#define LOWER_C	B11011000
-#define LOWER_R B11010000
-#define ASTERISK	B11011100
-#define SHARP	B11001000
-#define DEGREES	B11100011
-#define QUOTES	B10100010
-#define UNDERSCORE	B10001000
+static const uint8_t LED_1	= B00000001;
+static const uint8_t LED_2	= B00000010;
+static const uint8_t LED_3	= B00000100;
+static const uint8_t LED_67	= B00001000;
+static const uint8_t LED_8	= B00010000;
+static const uint8_t LED_9	= B00100000;
+static const uint8_t LED_11	= B01000000;
 
-#define CHARMAP_SIZE	36
+static const uint8_t BLANK	= B10000000;
+static const uint8_t MINUS	= B11000000;
+static const uint8_t LOWER_C	= B11011000;
+static const uint8_t LOWER_R 	= B11010000;
+static const uint8_t ASTERISK	= B11011100;
+static const uint8_t SHARP		= B11001000;
+static const uint8_t DEGREES	= B11100011;
+static const uint8_t QUOTES		= B10100010;
+static const uint8_t UNDERSCORE	= B10001000;
+
+static const uint8_t CHARMAP_SIZE =	36;
 
 ///@brief 
 /// 7 segments 4 digits common cathodes LED display manager

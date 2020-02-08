@@ -65,7 +65,9 @@ class BuzzerClass
 	void loop();						//!< Function for main .ino loop
 
 	void beepInit(uint16_t frequency, uint16_t duration, uint16_t pause);	//!< beeper parameters setting
+	void beepInit(NoteClass note, uint16_t pause);							//!< beeper parameters setting
 	void beep(uint16_t frequency, uint16_t duration, uint16_t pause);		//!< starts beeper with parameters
+	void beep(NoteClass note, uint16_t pause);								//!< starts beeper with parameters
 	void beep();															//!< starts beeper with already set parameters 
 
 	void song(char rtttl[]);

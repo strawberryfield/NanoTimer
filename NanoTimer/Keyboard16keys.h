@@ -2,7 +2,7 @@
 /// Keyboard 16 keys class definition.
 ///
 /// @author
-/// copyright (c) 2019 Roberto Ceccarelli - Casasoft  
+/// copyright (c) 2019-2020 Roberto Ceccarelli - Casasoft  
 /// http://strawberryfield.altervista.org 
 /// 
 /// @copyright
@@ -32,25 +32,24 @@
 #include "WProgram.h"
 #endif
 
+#include "MX4_C301.h"
+
 /// Rows values detected   
 /// 1009    
 ///  507  
 ///  338  
 ///  253  
-#define ROW1EDGE	750
-#define ROW2EDGE	420
-#define ROW3EDGE	295
-#define ROW4EDGE	120
-
-// Empty char
-#define	BLANK	B10000000
+static const unsigned int ROW1EDGE =	750;
+static const unsigned int ROW2EDGE =	420;
+static const unsigned int ROW3EDGE =	295;
+static const unsigned int ROW4EDGE =	120;
 
 ///@brief
 /// 16 keys keypad manager
 class Keyboard16keysClass
 {
 protected:
-	int inputPin = PIN_A7;		//!< default input on pin A7
+	int inputPin = A7;		//!< default input on pin A7
 	int	readColumn();			//!< return pressed row for current column
 	static const PROGMEM char keymap[4][4];			//!< keys map
 
